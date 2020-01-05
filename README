@@ -1,0 +1,5 @@
+$ { for a in logs/* ; do python3 nagios-log-parser.py $a ; done ; } >notifications.csv
+$ sqlite3 notifications.sqlite
+> create table notifications(type, ts, host, service, state, info);
+> .separator "\t"
+> .import notifications.csv notifications
