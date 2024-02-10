@@ -1,3 +1,9 @@
+Deprecated.
+
+I now parse logs using opentelemetry-collector and send them to Clickhouse, see:
+
+https://github.com/alexpdp7/alexpdp7/blob/150912e36788ae6c116f9b92adf25b672308d6d6/personal_infra/puppet/site/nagios.h1.int.pdp7.net.pp#L44
+
 $ { for a in logs/* ; do python3 nagios-log-parser.py $a ; done ; } >notifications.csv
 $ sqlite3 notifications.sqlite
 > create table notifications(type, ts, host, service, state, info);
